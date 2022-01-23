@@ -1,22 +1,35 @@
 apiVersion: v1
 entries:
-  nmrxiv-app:
+  vibspecdb:
   - apiVersion: v2
-    appVersion: 1.16.0
-    created: "2022-01-20T14:27:56.594036716Z"
+    appVersion: 0.1.0
+    created: "2022-01-23T18:50:59.451604218Z"
     dependencies:
-    - condition: database.enabled
+    - condition: postgresql.enabled
       name: postgresql
       repository: https://charts.bitnami.com/bitnami
       version: 10.13.11
-    description: A Helm chart for Kubernetes
-    digest: 07a5722a420ec503b47bae822829ebc5c571385f5e80ae1d839547d804c41b57
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 15.6.3
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.24.12
+    - condition: meilisearch.enabled
+      name: meilisearch
+      repository: https://meilisearch.github.io/meilisearch-kubernetes
+      version: 0.1.22
+    description: A Helm chart of Vibspec-Laravel Application for K8S
+    digest: d881be6f7a731375f0ecae1542a3509d9111a80db8461edc28000c44ccd019b3
+    home: https://vibspecdb.k8s.photonicdata.science
     maintainers:
-    - email: nisha.sharma@uni-jena.de
-      name: Nisha Sharma
-    name: nmrxiv-app
+    - email: nazar.stefaniuk@uni-jena.de
+      name: Nazar Stefaniuk
+    name: vibspecdb
     type: application
     urls:
-    - https://github.com/NFDI4Chem/nmrxiv-helm-chart/releases/download/nmrxiv-app-0.1.0/nmrxiv-app-0.1.0.tgz
-    version: 0.1.0
-generated: "2022-01-20T14:27:56.594044416Z"
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/vibspecdb-0.2.13/vibspecdb-0.2.13.tgz
+    version: 0.2.13
+generated: "2022-01-23T18:50:59.451614218Z"
