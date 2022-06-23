@@ -1,5 +1,88 @@
 apiVersion: v1
 entries:
+  nmrium:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-06-23T09:13:18.680180407Z"
+    description: A Helm chart for nmrium application used as dependency in nmrxiv-app
+    digest: 0d7f291d3607115ad4bd4ba1ffc5f40187221d2dcc792d78a4167071e834a05b
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    - email: chandu.nainala@uni-jena.de
+      name: Chandu Nainala
+    name: nmrium
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrium-0.1.0/nmrium-0.1.0.tgz
+    version: 0.1.0
+  nmrxiv-app:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-06-23T09:13:18.848828084Z"
+    dependencies:
+    - condition: database.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 10.16.2
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.9.0
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 9.0.0
+    - condition: meilisearch.enabled
+      name: meilisearch
+      repository: https://meilisearch.github.io/meilisearch-kubernetes
+      version: 0.1.33
+    - name: pythonmicroservice
+      repository: https://nfdi4chem.github.io/repo-helm-charts
+      version: 0.1.0
+    - name: nmrium
+      repository: https://nfdi4chem.github.io/repo-helm-charts
+      version: 0.1.0
+    description: A  Helm chart of nmrXiv-Laravel Application for K8S.
+    digest: 9c1656d3a1fdf16f0bcfdac7a5bc40c591b485c9f990ff3d226c73755fdc76be
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    name: nmrxiv-app
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrxiv-app-0.2.8/nmrxiv-app-0.2.8.tgz
+    version: 0.2.8
+  nmrxiv-doc:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-06-23T09:13:18.999081547Z"
+    description: A Helm chart of nmrXiv-doc Application for K8S.
+    digest: 7129787392b711b5e62373efab533ad56158aa5bf0afab06f47e52febf8930eb
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    name: nmrxiv-doc
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrxiv-doc-0.1.4/nmrxiv-doc-0.1.4.tgz
+    version: 0.1.4
+  pythonmicroservice:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-06-23T09:13:19.162015154Z"
+    description: A Helm chart for python microservice used as a subcharrt in nmrxiv-app.
+    digest: de4e74299ffa31de24c6f7cfc941815b76a4e37243555399f7c7ff54a805a5a3
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    - email: chandu.nainala@uni-jena.de
+      name: Chandu Nainala
+    name: pythonmicroservice
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/pythonmicroservice-0.1.0/pythonmicroservice-0.1.0.tgz
+    version: 0.1.0
   vibspecdb:
   - apiVersion: v2
     appVersion: 0.1.0
@@ -32,4 +115,4 @@ entries:
     urls:
     - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/vibspecdb-0.2.13/vibspecdb-0.2.13.tgz
     version: 0.2.13
-generated: "2022-01-23T18:50:59.451614218Z"
+generated: "2022-06-23T09:13:19.162025654Z"
