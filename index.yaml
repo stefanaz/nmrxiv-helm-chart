@@ -1,5 +1,80 @@
 apiVersion: v1
 entries:
+  cheminfo-microservice:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-26T18:20:07.768853359Z"
+    dependencies:
+    - condition: grafana.enabled
+      name: grafana
+      repository: https://charts.bitnami.com/bitnami
+      version: 8.4.5
+    - condition: prometheus.enabled
+      name: prometheus
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 22.6.5
+    description: A Helm chart for cheminformatics microservice.
+    digest: fdf82a691dbf59f3f2d05b6bdfcea057b486969e4fd4d65ff6d159f447500e76
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    name: cheminfo-microservice
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/cheminfo-microservice-0.1.6/cheminfo-microservice-0.1.6.tgz
+    version: 0.1.6
+  coconut-app:
+  - apiVersion: v2
+    appVersion: 1.16.2
+    created: "2023-07-26T18:20:07.914634205Z"
+    dependencies:
+    - condition: cheminfo-microservice.enabled
+      name: cheminfo-microservice
+      repository: https://nfdi4chem.github.io/repo-helm-charts
+      version: 0.1.3
+    - name: rdkitcatridgepostgres
+      repository: https://nfdi4chem.github.io/repo-helm-charts
+      version: 0.1.0
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.6.0
+    description: A  Helm chart of coconut-Laravel Application for K8S.
+    digest: e943056025a96e07831ae767cac26c6d1495031ae8a5b63a7c09fffe2f918daa
+    name: coconut-app
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/coconut-app-0.2.6/coconut-app-0.2.6.tgz
+    version: 0.2.6
+  meilisearch:
+  - apiVersion: v1
+    appVersion: v0.27.1
+    created: "2023-07-26T18:20:08.040931124Z"
+    description: A Helm chart for the Meilisearch search engine
+    digest: c7b6218ef63dfba0105114f7b2fcffe0ac2a35f9844808f09401625174e08e71
+    home: https://github.com/meilisearch/meilisearch-kubernetes/charts
+    icon: https://res.cloudinary.com/meilisearch/image/upload/v1597822872/Logo/logo_img.svg
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    name: meilisearch
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/meilisearch-0.1.44/meilisearch-0.1.44.tgz
+    version: 0.1.44
+  nmr-predict:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-26T18:20:08.184379255Z"
+    description: A Helm chart for nmr-predict service.
+    digest: 39877c00a6fb586f69727e8acfefb42ac794c96ca876ea203296f24c9938f6d2
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    name: nmr-predict
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmr-predict-0.1.2/nmr-predict-0.1.2.tgz
+    version: 0.1.2
   nmrium:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -17,6 +92,42 @@ entries:
     - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrium-0.1.0/nmrium-0.1.0.tgz
     version: 0.1.0
   nmrxiv-app:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-26T18:20:08.329428996Z"
+    dependencies:
+    - condition: database.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.14
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.6.0
+    - condition: rabbitmq.enabled
+      name: rabbitmq
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.5.0
+    - condition: meilisearch.enabled
+      name: meilisearch
+      repository: https://nfdi4chem.github.io/repo-helm-charts
+      version: 0.1.44
+    - name: pythonmicroservice
+      repository: https://nfdi4chem.github.io/repo-helm-charts
+      version: 0.1.0
+    - name: nmrium
+      repository: https://nfdi4chem.github.io/repo-helm-charts
+      version: 0.1.0
+    description: A  Helm chart of nmrXiv-Laravel Application for K8S.
+    digest: 69e498345c7ae14e0b908279028d1c67f618503515961abfa777842a6f4d7615
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    name: nmrxiv-app
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrxiv-app-0.6.0/nmrxiv-app-0.6.0.tgz
+    version: 0.6.0
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-06-23T09:13:18.848828084Z"
@@ -56,6 +167,19 @@ entries:
   nmrxiv-doc:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-07-26T18:20:08.464412172Z"
+    description: A Helm chart of nmrXiv-doc Application for K8S.
+    digest: a99b2bc78c7a467e749312298ba0b8369b3014c0497a5d7d44ec85a20dfc393a
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    name: nmrxiv-doc
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrxiv-doc-0.1.5/nmrxiv-doc-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-06-23T09:13:18.999081547Z"
     description: A Helm chart of nmrXiv-doc Application for K8S.
     digest: 7129787392b711b5e62373efab533ad56158aa5bf0afab06f47e52febf8930eb
@@ -67,7 +191,38 @@ entries:
     urls:
     - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrxiv-doc-0.1.4/nmrxiv-doc-0.1.4.tgz
     version: 0.1.4
+  nmrxiv-nodejs-microservice:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-26T18:20:08.583418244Z"
+    description: A Helm chart for nodejs micoservice for nmrxiv.
+    digest: 58360baa4516e2f7a1f292bd044a03eb7e97ba3fde4eea84c207dbe5e801affc
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    - email: chandu.nainala@uni-jena.de
+      name: Chandu Nainala
+    name: nmrxiv-nodejs-microservice
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/nmrxiv-nodejs-microservice-0.1.0/nmrxiv-nodejs-microservice-0.1.0.tgz
+    version: 0.1.0
   pythonmicroservice:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-26T18:20:08.683508793Z"
+    description: A Helm chart for python microservice.
+    digest: f6a24be70038aa5bd3d5e9fcad10eed5d67914f6f479c14d13b4d3b8f0436466
+    maintainers:
+    - email: nisha.sharma@uni-jena.de
+      name: Nisha Sharma
+    - email: chandu.nainala@uni-jena.de
+      name: Chandu Nainala
+    name: pythonmicroservice
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/pythonmicroservice-0.1.1/pythonmicroservice-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2022-06-23T09:13:19.162015154Z"
@@ -83,7 +238,45 @@ entries:
     urls:
     - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/pythonmicroservice-0.1.0/pythonmicroservice-0.1.0.tgz
     version: 0.1.0
+  rdkitcatridgepostgres:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-26T18:20:08.8122691Z"
+    description: A Helm chart for Kubernetes
+    digest: 875e9b1428b9283667d26396e87005ee8fa4b115b4cb843f02c6fbfcddfa0617
+    name: rdkitcatridgepostgres
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/rdkitcatridgepostgres-0.1.0/rdkitcatridgepostgres-0.1.0.tgz
+    version: 0.1.0
   vibspecdb:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2023-07-26T18:20:08.954550348Z"
+    dependencies:
+    - condition: postgresql.enabled
+      name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 11.6.3
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 17.6.0
+    - condition: meilisearch.enabled
+      name: meilisearch
+      repository: https://meilisearch.github.io/meilisearch-kubernetes
+      version: 0.1.22
+    description: A Helm chart of Vibspec-Laravel Application for K8S
+    digest: b5597d230ff4d45750b1f532ca819b160af8a2306e3e784307366c8488a6b3c5
+    home: https://vibspecdb.k8s.photonicdata.science
+    maintainers:
+    - email: nazar.stefaniuk@uni-jena.de
+      name: Nazar Stefaniuk
+    name: vibspecdb
+    type: application
+    urls:
+    - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/vibspecdb-0.2.15/vibspecdb-0.2.15.tgz
+    version: 0.2.15
   - apiVersion: v2
     appVersion: 0.1.0
     created: "2022-01-23T18:50:59.451604218Z"
@@ -115,4 +308,4 @@ entries:
     urls:
     - https://github.com/stefanaz/nmrxiv-helm-chart/releases/download/vibspecdb-0.2.13/vibspecdb-0.2.13.tgz
     version: 0.2.13
-generated: "2022-06-23T09:13:19.162025654Z"
+generated: "2023-07-26T18:20:08.954567848Z"
